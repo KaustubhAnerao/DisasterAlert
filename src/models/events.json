@@ -1,0 +1,146 @@
+[
+    {
+        "event_name": "Industrial Accident - Unknown - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 8.0,
+        "disaster_type": "Industrial Accident",
+        "location": "Unknown",
+        "created_utc": 1745325628.0
+    },
+    {
+        "event_name": "Flood - Riverdale - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 4.0,
+        "disaster_type": "Flood",
+        "location": "Riverdale",
+        "created_utc": 1745412028.0
+    },
+    {
+        "event_name": "Flood - Riverdale - Cluster 1",
+        "no_of_posts": 1,
+        "average_credibility_score": 4.0,
+        "disaster_type": "Flood",
+        "location": "Riverdale",
+        "created_utc": 1745498428.0
+    },
+    {
+        "event_name": "Flood - Riverdale - Cluster 2",
+        "no_of_posts": 2,
+        "average_credibility_score": 7.0,
+        "disaster_type": "Flood",
+        "location": "Riverdale",
+        "created_utc": 1748176828.0
+    },
+    {
+        "event_name": "Earthquake - Tokyo - Cluster 0",
+        "no_of_posts": 2,
+        "average_credibility_score": 7.5,
+        "disaster_type": "Earthquake",
+        "location": "Tokyo",
+        "created_utc": 1742560828.0
+    },
+    {
+        "event_name": "Earthquake - Tokyo - Cluster 1",
+        "no_of_posts": 2,
+        "average_credibility_score": 7.0,
+        "disaster_type": "Earthquake",
+        "location": "Tokyo",
+        "created_utc": 1745152828.0
+    },
+    {
+        "event_name": "Flood - Louisiana - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 8.0,
+        "disaster_type": "Flood",
+        "location": "Louisiana",
+        "created_utc": 1748263228.0
+    },
+    {
+        "event_name": "Flood - Unknown - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 6.0,
+        "disaster_type": "Flood",
+        "location": "Unknown",
+        "created_utc": 1742071200.0
+    },
+    {
+        "event_name": "Hurricane - Unknown - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 7.0,
+        "disaster_type": "Hurricane",
+        "location": "Unknown",
+        "created_utc": 1742078400.0
+    },
+    {
+        "event_name": "Hurricane - Unknown - Cluster 1",
+        "no_of_posts": 1,
+        "average_credibility_score": 6.0,
+        "disaster_type": "Hurricane",
+        "location": "Unknown",
+        "created_utc": 1742089200.0
+    },
+    {
+        "event_name": "Hurricane - Unknown - Cluster 2",
+        "no_of_posts": 1,
+        "average_credibility_score": 7.0,
+        "disaster_type": "Hurricane",
+        "location": "Unknown",
+        "created_utc": 1742096400.0
+    },
+    {
+        "event_name": "Hurricane - Dallas - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 8.0,
+        "disaster_type": "Hurricane",
+        "location": "Dallas",
+        "created_utc": 1742049628.0
+    },
+    {
+        "event_name": "Flood - Austin - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 8.0,
+        "disaster_type": "Flood",
+        "location": "Austin",
+        "created_utc": 1742103628.0
+    },
+    {
+        "event_name": "Industrial Accident - Houston - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 10.0,
+        "disaster_type": "Industrial Accident",
+        "location": "Houston",
+        "created_utc": 1742107228.0
+    },
+    {
+        "event_name": "Earthquake - Airoli - Cluster 1",
+        "no_of_posts": 1,
+        "average_credibility_score": 9.0,
+        "disaster_type": "Earthquake",
+        "location": "Airoli",
+        "created_utc": 1742042428.0
+    },
+    {
+        "event_name": "Road Accident - Unknown - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 7.0,
+        "disaster_type": "Road Accident",
+        "location": "Unknown",
+        "created_utc": 1742085600.0
+    },
+    {
+        "event_name": "Tornado - Kansas - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 7.0,
+        "disaster_type": "Tornado",
+        "location": "Kansas",
+        "created_utc": 1742453264.0
+    },
+    {
+        "event_name": "Road Accident - pune - Cluster 0",
+        "no_of_posts": 1,
+        "average_credibility_score": 6.0,
+        "disaster_type": "Road Accident",
+        "location": "pune",
+        "created_utc": 1742452369.0
+    }
+]

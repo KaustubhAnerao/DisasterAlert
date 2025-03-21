@@ -1,6 +1,5 @@
-# Ignore environment files (keep secrets safe)
-config/.env
-.env
+# Ignore all environment files (for secrets & API keys)
+*.env
 
 # Ignore Python cache files
 __pycache__/
@@ -37,3 +36,23 @@ instance/
 .vscode/
 .idea/
 *.iml
+
+# Ignore Python & Jupyter Notebook checkpoint files
+*.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.pyo
+*.log
+
+# Ignore environment/config files
+*.env
+config.json
+secrets.json
+
+# Ignore dataset and output files
+src/datasets/tweets.csv
+src/models/*.json
+
+
+#ignore tracking .git folders inside subdirectories
+src/frontend/main/.git
