@@ -10,7 +10,9 @@ DisasterAlert is a platform that fetches real-time disaster-related data from th
 ✅ Displays disaster events as interactive cards 🃏 on the website
 ✅ Clicking on a card shows related posts & discussions 🗣
 ✅ Built using Flask for API handling & MongoDB for database storage 🗄
-🛠 Tech Stack
+
+
+## Tech Stack 🛠
 🔹 Frontend: React.js ⚛
 🔹 Backend: Flask 🐍
 🔹 Database: MongoDB 🍃
