@@ -15,7 +15,7 @@ DisasterAlert is a platform that fetches real-time disaster-related data from th
 ## Tech Stack 🛠
 🔹 Frontend: React.js ⚛
 🔹 Backend: Flask 🐍
-🔹 Database: MongoDB 🍃
+🔹 Database: MongoDB Atlas🍃
 🔹 API Integration: Reddit API 🛜
 
 
@@ -32,13 +32,15 @@ create a new .env file - save all the API credentials here.
 required credentials - CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD, USER_AGENT 
 
 ### 3. set up MongooDB connection
-server bydefault run on mongodb://localhost:27017/ if virtual env not setup
-server connection setup: 
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
-DB_NAME = os.getenv("DB_NAME", "DisasterAlert")
+Create an Atlas account at MongoDB Atlas
+Set up a cluster on Atlas and get the connection URI.
+Replace the following in your .env file:
+MONGO_URI = "your_atlas_connection_string"
+DB_NAME = "DisasterAlert"
 
 ### 4. Run the Flask backend
-python app.py
+cd src/backend
+python flask-server.py
 
 ### 5. Run the frontend/index.html
 

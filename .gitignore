@@ -1,6 +1,12 @@
 # Ignore all environment files (for secrets & API keys)
 *.env
 
+#Ignore json files in models
+src/models/*.json
+
+# Ignore the datasets folder
+src/datasets/
+
 # Ignore Python cache files
 __pycache__/
 *.pyc

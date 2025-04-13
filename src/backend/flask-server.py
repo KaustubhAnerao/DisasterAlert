@@ -5,8 +5,8 @@ import datetime
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from src/config/mongo.env
+load_dotenv(dotenv_path='../config/mongo.env')
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
