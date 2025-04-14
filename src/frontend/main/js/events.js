@@ -27,39 +27,40 @@ function loadEventsPage() {
           );
 
           // Format the date if available
-          let dateDisplay = "";
-          if (event.latest_update) {
-            const eventDate = new Date(event.latest_update * 1000);
-            dateDisplay = eventDate.toLocaleDateString();
-          }
+          const firstReportedDate = event.created_utc
+            ? new Date(event.created_utc * 1000).toLocaleString()
+            : "Unknown";
+          const latestUpdateDate = event.updated_utc
+            ? new Date(event.updated_utc * 1000).toLocaleString()
+            : "Unknown";
 
           html += `
                         <div class="event-card" data-event-name="${
                           event.event_name
                         }">
                             <div class="event-header">
+                                <div class="event-logo">
+                                  <img src="../../assets/${
+                                    event.disaster_type
+                                  }.png"/>
+                                </div>
                                 <div class="event-title">${
                                   event.event_name
                                 }</div>
-                                <div class="event-location">${
-                                  event.location || "Unknown"
-                                }</div>
+                                
                             </div>
                             <p>${
-                              event.title
-                                ? truncateText(event.title, 100)
-                                :""
+                              event.title ? truncateText(event.title, 100) : ""
                             }</p>
                             <div class="event-stats">
-                                <span>Posts: ${event.no_of_posts}</span>
+                                <div class="event-type"><b>Type:</b> ${event.disaster_type}</div>
+                                <div class="event-location"><b>Location:</b> ${event.location}</div>
+                                <div><b>First Reported:</b> ${firstReportedDate}</div>
+                                <div><b>Last Reported:</b> ${latestUpdateDate}</div>
+                                <div><b>Posts:</b> ${event.no_of_posts}</div>
                                 <span class="credibility ${credibilityClass}">Score: ${
             event.average_credibility_score
           }/10</span>
-                                ${
-                                  dateDisplay
-                                    ? `<span>Updated: ${dateDisplay}</span>`
-                                    : ""
-                                }
                             </div>
                         </div>
                     `;
@@ -113,12 +114,8 @@ function filterEvents(query) {
     const eventLocation = card
       .querySelector(".event-location")
       .textContent.toLowerCase();
-   
 
-    if (
-      eventTitle.includes(query) ||
-      eventLocation.includes(query) 
-    ) {
+    if (eventTitle.includes(query) || eventLocation.includes(query)) {
       card.style.display = "block";
     } else {
       card.style.display = "none";
@@ -161,7 +158,7 @@ function showEventDetails(data) {
 
   // Format dates
   const firstReportedDate = event.created_utc
-    ? new Date(event.created_utc* 1000).toLocaleString()
+    ? new Date(event.created_utc * 1000).toLocaleString()
     : "Unknown";
   const latestUpdateDate = event.updated_utc
     ? new Date(event.updated_utc * 1000).toLocaleString()
@@ -169,16 +166,20 @@ function showEventDetails(data) {
 
   let detailsHTML = `
         <h2 class="event-detail-title">${event.event_name}</h2>
-        <p><strong>Type:</strong> ${event.disaster_type}</p>
-        <p><strong>Location:</strong> ${event.location}</p>
-        <p><strong>First Reported:</strong> ${firstReportedDate}</p>
-        <p><strong>Last Reported:</strong> ${latestUpdateDate}</p>
-        <p><strong>Number of Reports:</strong> ${event.no_of_posts}</p>
-        <div style="margin: 15px 0;">
+        <hr>
+        <div class='event-info'>
+          <p><strong>Type:</strong> ${event.disaster_type}</p>
+          <p><strong>Location:</strong> ${event.location}</p>
+          <p><strong>First Reported:</strong> ${firstReportedDate}</p>
+          <p><strong>Last Reported:</strong> ${latestUpdateDate}</p>
+          <p><strong>Number of Reports:</strong> ${event.no_of_posts}</p>
+        </div>
+        <div style="margin: 25px 0px;">
             <span class="credibility ${credibilityClass}">Average Credibility Score: ${event.average_credibility_score}/10</span>
         </div>
+        <hr>
         
-        <h3>Related Posts</h3>
+        <h3 style="margin:25px 0px 10px 0px;">Related Posts</h3>
     `;
 
   if (posts.length > 0) {
@@ -187,7 +188,7 @@ function showEventDetails(data) {
       const postCredibilityClass = getCredibilityClass(post.credibility_score);
 
       detailsHTML += `
-                <div class="post-card" style="margin-bottom: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+                <div class="post-card" style="margin-bottom: 20px; padding: 15px; background-color:rgb(242, 242, 242); border-radius: 8px;">
                     <h4>${post.title}</h4>
                     <p>${post.selftext}</p>
                     <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.9rem;">
