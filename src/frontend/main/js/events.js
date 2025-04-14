@@ -163,8 +163,8 @@ function showEventDetails(data) {
   const firstReportedDate = event.created_utc
     ? new Date(event.created_utc* 1000).toLocaleString()
     : "Unknown";
-  const latestUpdateDate = event.latest_update
-    ? new Date(event.latest_update * 1000).toLocaleString()
+  const latestUpdateDate = event.updated_utc
+    ? new Date(event.updated_utc * 1000).toLocaleString()
     : "Unknown";
 
   let detailsHTML = `
@@ -172,7 +172,7 @@ function showEventDetails(data) {
         <p><strong>Type:</strong> ${event.disaster_type}</p>
         <p><strong>Location:</strong> ${event.location}</p>
         <p><strong>First Reported:</strong> ${firstReportedDate}</p>
-       
+        <p><strong>Last Reported:</strong> ${latestUpdateDate}</p>
         <p><strong>Number of Reports:</strong> ${event.no_of_posts}</p>
         <div style="margin: 15px 0;">
             <span class="credibility ${credibilityClass}">Average Credibility Score: ${event.average_credibility_score}/10</span>
