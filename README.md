@@ -6,9 +6,11 @@ DisasterAlert is a platform that fetches real-time disaster-related data from th
 ## Features ✨
 
 ✅ Fetches real-time disaster data using the Reddit API 🔄
-✅ Monitors disasters like Earthquakes 🌍, Tornadoes 🌪, Hurricanes 🌀, Floods 🌊, Road Accidents 🚗💥, and Industrial Accidents 🏭🔥
+✅ Monitors disasters like Earthquakes 🌍, Tornadoes 🌪, Hurricanes 🌀, Floods 🌊, Road Accidents 🚗💥, and Industrial Accidents 🏭🔥, Road Accidents 🚗💥, Landslides 🏔, Wildfires 🔥
+✅ Easily extendable: Add more disaster types by editing the clustering_event.ipynb file 📂
 ✅ Displays disaster events as interactive cards 🃏 on the website
 ✅ Clicking on a card shows related posts & discussions 🗣
+✅ Integrated interactive map for visualizing disaster locations 🗺
 ✅ Built using Flask for API handling & MongoDB for database storage 🗄
 
 
@@ -47,4 +49,6 @@ python flask-server.py
 
 ## Future Enhancements 🎯
 🔹 Improved filtering options for disaster types 📌
-🔹 Maps integration for Enhanced UI/UX experience 🌍
+🔹 Real-time push notifications 🔔
+🔹 Support for more data sources beyond Reddit 🌐
+🔹 Heatmaps and cluster views for disaster density visualization 🔥

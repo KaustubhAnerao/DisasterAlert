@@ -36,29 +36,40 @@ events_collection = db["events"]
 #         print(f"Error accessing MongoDB: {e}")
 #         return jsonify({"error": f"Failed to access MongoDB: {str(e)}"}), 500
 def get_top_alerts():
-    """Get top 3 alerts based on credibility score and recency"""
+    """Get all events and mark the top 3 with 'top_alert': true based on credibility and recency"""
     try:
-        
-        # Get current time
         current_time = datetime.datetime.now().timestamp()
-        # 24 hours in seconds
-        time_window = 1745412028 + 24 * 777
-        
-        # Find posts within the last 24 hours with high credibility
-        recent_posts = list(posts_collection.find(
+        # Define a 24-hour time window (in seconds)
+        time_window = 24 * 60 * 60  
+
+        # Fetch events from the last 24 hours
+        recent_events = list(events_collection.find(
             {"created_utc": {"$gte": current_time - time_window}},
-            {"_id": 0}  # Exclude MongoDB _id field
+            {"_id": 0}
         ).sort([("credibility_score", -1), ("created_utc", -1)]).limit(3))
-        
-        # If not enough recent posts, just get top posts by credibility
-        if len(recent_posts) < 3:
-            additional_posts = list(posts_collection.find(
-                {"_id": {"$nin": [post.get("_id") for post in recent_posts if "_id" in post]}},
+
+        # If fewer than 3 recent events, fill with the most credible older ones
+        if len(recent_events) < 3:
+            # Allow _id in projection for exclusion logic
+            recent_ids = [event.get("_id") for event in recent_events if "_id" in event]
+            additional_events = list(events_collection.find(
+                {"_id": {"$nin": recent_ids}},
                 {"_id": 0}
-            ).sort([("credibility_score", -1), ("created_utc", -1)]).limit(3 - len(recent_posts)))
-            recent_posts.extend(additional_posts)
-        print (jsonify(recent_posts))
-        return jsonify(recent_posts)
+            ).sort([("credibility_score", -1), ("created_utc", -1)]).limit(3 - len(recent_events)))
+            recent_events.extend(additional_events)
+
+        # Fetch all events (for returning the full list)
+        all_events = list(events_collection.find({}, {"_id": 0}))
+
+        # Match and tag the top 3
+        for event in all_events:
+            for top_event in recent_events:
+                if event == top_event:
+                    event["top_alert"] = True
+                    break
+
+        return jsonify(all_events)
+
     except Exception as e:
         app.logger.error(f"Error fetching top alerts: {e}")
         return jsonify({"error": "Failed to fetch top alerts"}), 500

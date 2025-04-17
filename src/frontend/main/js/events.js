@@ -41,7 +41,7 @@ function loadEventsPage() {
                             <div class="event-header">
                                 <div class="event-logo">
                                   <img src="../../assets/${
-                                    event.disaster_type
+                                    encodeURIComponent(event.disaster_type)
                                   }.png"/>
                                 </div>
                                 <div class="event-title">${
