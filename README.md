@@ -15,7 +15,7 @@ DisasterAlert is a platform that fetches real-time disaster-related data from th
 
 
 ## Tech Stack 🛠
-🔹 Frontend: React.js ⚛  
+🔹 Frontend: HTML, CSS, JS.
 🔹 Backend: Flask 🐍  
 🔹 Database: MongoDB Atlas🍃  
 🔹 API Integration: Reddit API 🛜  
